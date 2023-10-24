@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Obligatorio</title>
+
+    <script src="js/clases.js"></script>
+    <script src="js/sistema.js"></script>
+    <script src="js/codigo.js"></script>
+
+    <!-- Iconos -->
+    <script src="https://kit.fontawesome.com/1bfd5e88d3.js" crossorigin="anonymous"></script>
+    <!-- Iconos -->
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <!-- Fuentes -->
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/estilos.css" />
+    <!-- Estilos -->
+  </head>
+
+  <body>
+    <div id="contenedorPrincipal">
+      <!-- Barra de Navegación -->
+      <nav id="contenedorNavegacion">
+        <div id="navLinksContainer">
+          <img src="img/logo.png" />
+          <span id="navLinks">
+            <input type="button" class="navLinks btn" value="Inicio" id="navLinkInicioCensista" data-abrir-seccion="paginaPrincipal" />
+            <input type="button" class="navLinks btn" value="Nuevo Censo" id="navLinkNuevoCensoInvitado" data-abrir-seccion="nuevoCenso" />
+            <input type="button" id="navLinkEstadisticasInvitado" class="navLinks btn" value="Estadisticas" data-abrir-seccion="estadisticas" />
+          </span>
+        </div>
+        <div id="navAciones">
+          <p id="txtNombreUsuario"></p>
+          <div>
+            <p id="txtInicialesUsuario"></p>
+          </div>
+          <button id="btnCerrarSesion" class="btn" data-abrir-seccion="selectorPerfil">
+            <i class="fa-solid fa-sign-out"></i>
+          </button>
+        </div>
+      </nav>
+      <!-- Barra de Navegación -->
+
+      <div id="contenedorContenido">
+        <!-- Funcionalidad: Selector de Perfil de Usuario -->
+        <div id="seccionSelectorPerfil" data-seccion="selectorPerfil" class="seccion contenedorFormularioAutenticacion">
+          <div>
+            <h1 class="tituloFormularioAutenticacion">Sistema de Autenticación</h1>
+            <p class="subtituloFormularioAutenticacion">Elige tu perfil</p>
+          </div>
+
+          <div id="contenedorBotonesSelectorPerfil">
+            <button class="btnSelectorPerfil btn" data-abrir-seccion="nuevoCenso" id="btnSelectorInvitado">
+              <i class="fa-solid fa-user-secret"></i>
+              <p>Invitado</p>
+            </button>
+
+            <button data-abrir-seccion="loginCensista" class="btnSelectorPerfil btn" id="btnSelectorCensista">
+              <i class="fa-solid fa-user-pen"></i>
+              <p>Censista</p>
+            </button>
+          </div>
+
+          <div id="contenedorPieSelectorPerfil">
+            <h2 class="tituloPieFormularioAutenticacion">Obligatorio Programación</h2>
+            <p class="subtituloPieFormularioAutenticacion">Pablo Padilla & Agustín Tornielli</p>
+          </div>
+        </div>
+        <!-- Funcionalidad: Selector de Perfil de Usuario -->
+
+        <!-- Funcionalidad: Registro de Censista -->
+        <div data-seccion="registroCensista" class="seccion contenedorFormularioAutenticacion">
+          <div>
+            <h1 class="tituloFormularioAutenticacion">Sistema de Autenticación</h1>
+            <p class="subtituloFormularioAutenticacion">Registrar nuevo Censista</p>
+          </div>
+          <div id="alertaRegistrar">
+            <p id="txtAlertaRegistrar"></p>
+          </div>
+          <div id="contenedorBotonesSelectorPerfil">
+            <p id="txtValidacionCampos"></p>
+            <label class="label" for="txtNombre">Nombre Completo</label>
+            <input id="txtNombre" class="input input-primario" />
+
+            <label class="label" for="txtUsuario">Usuario</label>
+            <input id="txtUsuario" class="input input-primario" />
+            <p id="txtValidacionUsuario"></p>
+
+            <label class="label" for="txtContraseña">Contraseña</label>
+            <input id="txtContraseña" type="password" class="input input-primario" />
+            <p id="txtValidacionContraseña"></p>
+
+            <input id="btnRegistrar" type="button" class="boton-grande boton-primario" value="Registrar Censista" />
+          </div>
+          <div id="contenedorPieRegistrar" class="contenedorPieBotones">
+            <input data-abrir-seccion="loginCensista" type="button" class="btnTexto btn" value="¡Ya tengo cuenta!" />
+            <input data-abrir-seccion="selectorPerfil" type="button" class="btnTexto btn" value="¿Quieres cambiar de perfil?" />
+          </div>
+        </div>
+        <!-- Funcionalidad: Registro de Censista -->
+
+        <!-- Funcionalidad: Login de Censista -->
+        <div data-seccion="loginCensista" class="seccion contenedorFormularioAutenticacion">
+          <div>
+            <h1 class="tituloFormularioAutenticacion">Sistema de Autenticación</h1>
+            <p class="subtituloFormularioAutenticacion">Ingresar como Censista</p>
+          </div>
+          <div id="alertaLogin" data-seccion="alertaLogin">
+            <p id="txtAlertaLogin"></p>
+          </div>
+          <div id="contenedorBotonesSelectorPerfil">
+            <label class="label" for="txtUsuarioLogin">Usuario</label>
+            <input id="txtUsuarioLogin" class="input input-primario" />
+
+            <label class="label" for="txtContraseñaLogin">Contraseña</label>
+            <input id="txtContraseñaLogin" type="password" class="input input-primario" />
+            <input id="btnLogin" type="button" class="btnAutenticacion boton-grande boton-primario" value="Iniciar sesión" />
+          </div>
+          <div id="contenedorPieBotonesLogin" class="contenedorPieBotones">
+            <input data-abrir-seccion="registroCensista" type="button" class="btnTexto btn" value="¡Quiero registrarme!" />
+            <input data-abrir-seccion="selectorPerfil" type="button" class="btnTexto btn" value="¿Quieres cambiar de perfil?" />
+          </div>
+        </div>
+        <!-- Funcionalidad: Login de Censista -->
+
+        <!-- Funcionalidad: Página Principal Censista-->
+        <div data-seccion="paginaPrincipal" class="seccion">
+          <!-- Estadísticas -->
+          <div id="estadisticasPaginaPrincipal">
+            <div class="cajaEstadisticasPaginaPrincipal">
+              <i class="icono fa-solid fa-user"></i>
+              <h2 id="txtTotalPersonasRegistradas"></h2>
+              <p>Total de Personas Registradas</p>
+            </div>
+            <div class="cajaEstadisticasPaginaPrincipal">
+              <i class="icono fa-solid fa-pencil"></i>
+              <h2 id="txtTotalPersonasCensadas"></h2>
+              <p>Total de Personas Censadas</p>
+            </div>
+            <div class="cajaEstadisticasPaginaPrincipal">
+              <i class="icono fa-solid fa-clock"></i>
+              <h2 id="txtTotalPersonasPendientes"></h2>
+              <p>Total de Personas Pendientes</p>
+            </div>
+            <div class="cajaEstadisticasPaginaPrincipal">
+              <i class="icono fa-solid fa-chart-pie"></i>
+              <p>Menores de edad verificados</p>
+              <p id="txtTotalPersonasMenores"></p>
+              <p>Mayores de edad verificados</p>
+              <p id="txtTotalPersonasMayores"></p>
+              <select class="combobox" id="selDepartamentoEstadisticas" data-combo="departamento"></select>
+            </div>
+          </div>
+          <!-- Estadísticas -->
+          <!-- Tabla Censista -->
+          <div>
+            <div id="contenedorEncabezadoTablaEstadisticasPaginaPrincipal">
+              <h2 id="encabezadoTablaEstadisticasPaginaPrincipal">Listado de Censos</h2>
+              <span id="contenedorBotonesEncabezadoTablaEstadisticasPaginaPrincipal">
+                <input id="btnReasignar" type="button" class="boton-chico boton-primario" value="Reasignar censista" />
+                <input
+                  data-abrir-seccion="nuevoCenso"
+                  type="button"
+                  class="boton-chico boton-primario btn"
+                  value="Nuevo Censo"
+                  data-abrir-seccion="nuevoCenso"
+                />
+              </span>
+            </div>
+            <div id="contenedorTablaEstadisticasPaginaPrincipal">
+              <table id="tblCensos">
+                <thead>
+                  <tr>
+                    <th>Cédula</th>
+                    <th>Nombres</th>
+                    <th>Edad</th>
+                    <th>Departamento</th>
+                    <th>Ocupación</th>
+                    <th>Censista</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody id="tblBodyCensos"></tbody>
+              </table>
+            </div>
+          </div>
+          <!-- Tabla Censista -->
+          <!-- Modal reasignar censista -->
+          <div id="contenedorModal">
+            <button type="button" class="fa-solid fa-xmark" id="btnCerrarModal"></button>
+            <h2>Reasignación Censista</h2>
+            <div id="contenidoModal">
+              <label for="selPersona">Persona</label>
+              <select id="selPersona" class="combobox-secundario-grande">
+                <option value="">Nombre de la persona</option>
+              </select>
+              <label for="selCensista">Censista</label>
+              <select id="selCensista" class="combobox-secundario-grande">
+                <option value="">Nombre del Censista</option>
+              </select>
+              <span id="contenedorBtnReasignarCensista">
+                <input type="button" class="boton-chico boton-primario" id="btnReasignarCensista" value="Reasignar" />
+              </span>
+            </div>
+          </div>
+          <!-- Modal reasignar censista -->
+        </div>
+        <!-- Funcionalidad: Página Principal Censista -->
+
+        <!-- Funcionalidad: Nuevo Censo -->
+        <div data-seccion="nuevoCenso" class="seccion" id="contenedorNuevoCenso">
+          <h1>Nuevo Censo</h1>
+          <p>Formulario de datos personales</p>
+          <div id="formularioNuevoCenso">
+            <span class="campoFormulario">
+              <label class="label" for="txtCedula">Cédula de Identidad</label>
+              <input id="txtCedula" class="input input-secundario" />
+            </span>
+
+            <button id="btnValidarCedulaInvitado" class="boton-primario boton-grande">
+              <i class="fa-solid fa-magnifying-glass"></i> Validar Cédula de Identidad
+            </button>
+
+            <span class="campoFormulario">
+              <label class="label" for="txtNombreCompleto">Nombre Completo</label>
+              <input id="txtNombreCompleto" class="input input-secundario" />
+            </span>
+
+            <span class="campoFormulario">
+              <label class="label" for="txtEdad">Edad</label>
+              <input id="txtEdad" type="number" class="input input-secundario" />
+            </span>
+            <span class="campoFormulario">
+              <label class="label" for="selOcupacion">Ocupación</label>
+              <select id="selOcupacion" class="combobox-secundario-grande">
+                <option value="">Selecione una ocupación</option>
+                <option value="dependiente">Dependiente</option>
+                <option value="independiente">Independiente</option>
+                <option value="estudiante">Estudiante</option>
+                <option value="no-trabaja">No Trabaja</option>
+              </select>
+            </span>
+            <span class="campoFormulario">
+              <label class="label" for="selDepartamento">Departamento</label>
+              <select id="selDepartamento" data-combo="departamento" class="combobox-secundario-grande">
+                <option value="">Selecione un Departamento</option>
+              </select>
+            </span>
+            <span id="confirmarDatosNuevoCenso" class="campoFormulario">
+              <input type="checkbox" id="checkboxConfirmarDatos" />
+              <label for="checkboxConfirmarDatos" id="labelCheckboxConfirmarDatos">Confirmar datos</label>
+            </span>
+          </div>
+          <span id="contenedorBotonesNuevoCenso">
+            <button id="btnNuevoCenso" class="boton-con-icono boton-primario" disabled>
+              <i class="fa-regular fa-paper-plane"></i> Enviar formulario
+            </button>
+            <button id="btnEliminarDatos" class="boton-con-icono boton-secundario" disabled>
+              <i class="fa-solid fa-trash"></i> Eliminar mis datos
+            </button>
+          </span>
+
+          <div id="contenedorCensistaAsignado">
+            <h2>Censista Asignado</h2>
+            <p id="txtCensistaAsignado"></p>
+          </div>
+        </div>
+
+        <!-- Funcionalidad: Nuevo Censo -->
+
+        <!-- Funcionalidad: Estadísticas -->
+        <div data-seccion="estadisticas" class="seccion">
+          <!-- Tabla invitado-->
+          <div>
+            <h2 id="encabezadoTablaEstadisticas">Estadisticas de las Personas Censadas</h2>
+            <div id="contenedorTablaEstadisticas">
+              <table id="tblEstadisticas">
+                <thead>
+                  <tr>
+                    <th>Departamento</th>
+                    <th>Estudian</th>
+                    <th>No trabajan</th>
+                    <th>Dependientes o Independientes</th>
+                    <th>Porcentaje del total de censados</th>
+                  </tr>
+                </thead>
+                <tbody id="tblBodyEstadisticas"></tbody>
+              </table>
+            </div>
+          </div>
+          <!-- Tabla invitado -->
+        </div>
+
+        <!-- Funcionalidad: Estadísticas -->
+      </div>
+
+      <!-- Contenedores Personajes -->
+      <div id="contenedorPersonajesSelectorPerfil">
+        <img src="img/selector_perfiles/personaje_mirando_adelante.png" />
+        <img src="img/selector_perfiles/personaje_mirando_atras.png" />
+      </div>
+      <!-- Contenedores Personajes -->
+    </div>
+  </body>
+</html>
